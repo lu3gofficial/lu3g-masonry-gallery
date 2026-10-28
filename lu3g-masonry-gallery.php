@@ -2,7 +2,9 @@
 /**
  * Plugin Name:       LU3G Masonry Gallery
  * Description:       Widget Elementor che trasforma un campo repeater JetEngine (foto + link) in una gallery masonry animata. Ogni foto porta al suo link, senza lightbox.
- * Version:           1.7.1
+ * Version:           1.7.2
+ * Plugin URI:        https://github.com/lu3gofficial/lu3g-masonry-gallery
+ * Update URI:        https://github.com/lu3gofficial/lu3g-masonry-gallery
  * Author:            LU3G Agenzia Web
  * Text Domain:       lu3g-masonry-gallery
  * Requires PHP:      7.4
@@ -14,25 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LU3G_MG_VERSION', '1.7.1' );
+define( 'LU3G_MG_VERSION', '1.7.2' );
 define( 'LU3G_MG_FILE', __FILE__ );
 define( 'LU3G_MG_PATH', plugin_dir_path( __FILE__ ) );
 define( 'LU3G_MG_URL', plugin_dir_url( __FILE__ ) );
 define( 'LU3G_MG_IMAGE_SIZE', 'lu3g_masonry' );
-
-/**
- * Aggiornamenti automatici da GitHub (Release pubblicate sul repo).
- */
-if ( file_exists( LU3G_MG_PATH . 'plugin-update-checker/plugin-update-checker.php' ) ) {
-	require_once LU3G_MG_PATH . 'plugin-update-checker/plugin-update-checker.php';
-
-	$lu3g_mg_updater = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
-		'https://github.com/violix96/lu3g-masonry-gallery/',
-		__FILE__,
-		'lu3g-masonry-gallery'
-	);
-	$lu3g_mg_updater->getVcsApi()->enableReleaseAssets();
-}
 
 /**
  * Dimensione immagine dedicata: 1000px di larghezza, nessun ritaglio.
@@ -72,3 +60,10 @@ add_action( 'admin_notices', function () {
 	}
 	echo '<div class="notice notice-warning"><p><strong>LU3G Masonry Gallery</strong> richiede Elementor attivo.</p></div>';
 } );
+
+/**
+ * Aggiornamenti automatici dalle release GitHub di https://github.com/lu3gofficial/lu3g-masonry-gallery (vedi includes/class-updater.php).
+ * Fuori da ogni controllo su Elementor: il plugin si aggiorna anche dove Elementor è disattivato.
+ */
+require_once __DIR__ . '/includes/class-updater.php';
+LU3G_Masonry_Gallery_Updater::init( __FILE__ );

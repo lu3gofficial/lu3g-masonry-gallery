@@ -41,4 +41,12 @@ Su dispositivi touch tutti gli stili mostrano nome e freccia in basso, sempre vi
 - Le foto senza link non sono cliccabili.
 
 ## Aggiornamenti
-Aggiornamento automatico da GitHub (`violix96/lu3g-masonry-gallery`) tramite le Release.
+Aggiornamento automatico dalle release di https://github.com/lu3gofficial/lu3g-masonry-gallery (Bacheca → Aggiornamenti,
+entro 6 ore; subito con "Controlla di nuovo" o con il link "Controlla aggiornamenti" nella pagina Plugin).
+Facoltativo: `define( 'LU3G_GITHUB_TOKEN', 'github_pat_...' );` in `wp-config.php` alza il limite di richieste all'API GitHub.
+
+I siti con la 1.7.1 o precedenti vanno aggiornati a mano una volta (Plugin → Carica plugin → "Sostituisci la versione attuale").
+
+### Pubblicare una nuova versione
+Aumenta `Version:` e `LU3G_MG_VERSION` in `lu3g-masonry-gallery.php`, aggiungi la sezione in `CHANGELOG.md`, commit, poi
+`git tag vX.Y.Z && git push && git push --tags`: l'automazione crea lo zip e la release. Pacchetto in locale: `sh bin/build.sh`.
