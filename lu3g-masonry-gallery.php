@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       LU3G Masonry Gallery
  * Description:       Widget Elementor che trasforma un campo repeater JetEngine (foto + link) in una gallery masonry animata. Ogni foto porta al suo link, senza lightbox.
- * Version:           1.7.2
+ * Version:           1.7.3
  * Plugin URI:        https://github.com/lu3gofficial/lu3g-masonry-gallery
  * Update URI:        https://github.com/lu3gofficial/lu3g-masonry-gallery
  * Author:            LU3G Agenzia Web
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LU3G_MG_VERSION', '1.7.2' );
+define( 'LU3G_MG_VERSION', '1.7.3' );
 define( 'LU3G_MG_FILE', __FILE__ );
 define( 'LU3G_MG_PATH', plugin_dir_path( __FILE__ ) );
 define( 'LU3G_MG_URL', plugin_dir_url( __FILE__ ) );
